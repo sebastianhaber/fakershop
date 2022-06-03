@@ -11,4 +11,18 @@ export const GlobalStyle = createGlobalStyle`
         background-color: ${({theme}) => theme.colors.white};
         color: ${({theme}) => theme.colors.black};
     }
+    main{
+        margin: calc(70px + 1rem) auto 0;
+        max-width: 1920px;
+        padding: 0 2rem;
+    }
+    a{
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
+        transition: color .2s ease;
+    }
+    img{
+        display: block;
+    }
 `;
