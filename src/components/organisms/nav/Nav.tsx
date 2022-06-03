@@ -18,7 +18,7 @@ const StyledNav = styled.nav`
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 3;
     background-color: rgba(255,255,255,.9);
     display: flex;
     align-items: center;
