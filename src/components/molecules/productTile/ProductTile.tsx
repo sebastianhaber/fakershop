@@ -14,16 +14,13 @@ export default function ProductTile({product}: any) {
     }
     const removeProductFromFavourites = ()=>{
         let array = [...favouriteProducts]
-        for (var i = 0; i < array.length; i++) {
-            if (array[i] === product) {
-                let newArray = array.splice(i, 1)
-                setFavouriteProducts(newArray)
-                setFavourite(false)
-            }
-        }
+        const index = array.indexOf(product);
+        if(index > -1) array.splice(index, 1);
+        setFavouriteProducts(array)
+        setFavourite(false);
     }
     const handleFavourite = ()=>{
-        if(favouriteProducts.includes(product)) removeProductFromFavourites();
+        if(isFavourite) removeProductFromFavourites();
         else addProductToFavourites();
     }
     return (
