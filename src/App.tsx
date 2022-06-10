@@ -8,6 +8,7 @@ import axios from 'axios';
 function App() {
   const [products, setProducts] = useState<[]>([]);
   const [favouriteProducts, setFavouriteProducts] = useState<[]>([]);
+  const [cart, setCart] = useState<[]>([]);
   useEffect(()=>{
     if(!products.length){
       axios.get('https://fakerapi.it/api/v1/products?_price_min=5&_price_max=1000', {
@@ -22,8 +23,8 @@ function App() {
   return (
     <ShopContext.Provider value={{
       products, 
-      favouriteProducts, 
-      setFavouriteProducts
+      favouriteProducts, setFavouriteProducts,
+      cart, setCart
     }}>
       <Router>
         <Nav />

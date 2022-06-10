@@ -11,15 +11,20 @@ export interface IProduct{
     price: string,
     tags: string[],
     taxes: number,
-    upc: number
+    upc: number,
+    qty?: number,
 }
 interface IShopContext {
     products: IProduct[],
     favouriteProducts: IProduct[],
-    setFavouriteProducts: any
+    setFavouriteProducts: any,
+    cart: IProduct[],
+    setCart: any,
 }
 export const ShopContext = createContext<IShopContext>({
     products: [],
     favouriteProducts: [],
-    setFavouriteProducts: ()=>{}
+    setFavouriteProducts: ()=>{},
+    cart: [],
+    setCart: ()=>{},
 })

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-export const StyledNav = styled.nav<{favouriteProductsLength: Number}>`
+export const StyledNav = styled.nav<{cartItems: Number, favouriteProductsLength: Number}>`
     position: fixed;
     top: 0;
     left: 0;
@@ -30,7 +30,7 @@ export const StyledNav = styled.nav<{favouriteProductsLength: Number}>`
             }
         }
     }
-    #favs{
+    #favs, #cart{
         position: relative;
         &::after{
             content: '';
@@ -47,11 +47,19 @@ export const StyledNav = styled.nav<{favouriteProductsLength: Number}>`
             background-color: ${({theme}) => theme.colors.primary};
             overflow: hidden;
             transition: height .2s ease;
-            ${props => props.favouriteProductsLength > 0 && `
-                content: '${props.favouriteProductsLength}';
-                height: 1rem;
-            `}
         }
+    }
+    #favs{
+        ${props => props.favouriteProductsLength > 0 && `
+            content: '${props.favouriteProductsLength}';
+            height: 1rem;
+        `}
+    }
+    #cart{
+        ${props => props.cartItems > 0 && `
+            content: '${props.cartItems}';
+            height: 1rem;
+        `}
     }
     @media screen and (min-width: 500px) {
         .box{

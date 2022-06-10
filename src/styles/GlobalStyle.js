@@ -10,6 +10,9 @@ export const GlobalStyle = createGlobalStyle`
         line-height: 1.45;
         background-color: ${({theme}) => theme.colors.white};
         color: ${({theme}) => theme.colors.black};
+        &.hideScrollbar{
+            overflow: hidden;
+        }
     }
     main{
         margin: calc(70px + 1rem) auto 0;
@@ -24,5 +27,21 @@ export const GlobalStyle = createGlobalStyle`
     }
     img{
         display: block;
+    }
+    button{
+        border-radius: 0.5rem;
+        padding: 1rem 2rem;
+        font: inherit;
+        border: 0;
+        max-width: 500px;
+        width: 100%;
+        font-weight: bold;
+        cursor: pointer;
+        &.full{
+            background-color: ${({theme}) => theme.colors.primary};
+        }
+        &:disabled{
+            cursor: not-allowed;
+        }
     }
 `;
