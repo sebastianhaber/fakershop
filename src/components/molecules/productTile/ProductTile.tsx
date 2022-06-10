@@ -1,5 +1,5 @@
 import { Icon } from '@iconify/react';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { IProduct, ShopContext } from '../../../context/Context';
 import ProductModal from '../../organisms/productModal/ProductModal';
 import { StyledTile } from './ProductTile.styles';
@@ -29,6 +29,10 @@ export default function ProductTile({product}: any) {
         setModalOpen(prev => !prev)
         document.body.classList.toggle('hideScrollbar')
     }
+    useEffect(()=>{
+        if(favouriteProducts.includes(product)) setFavourite(true)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
     return (
         <StyledTile>
             {isModalOpen && <ProductModal isFavourite={isFavourite} handleFavourite={handleFavourite} product={product} onClose={handleToggleModal} />}

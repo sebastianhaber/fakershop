@@ -36,9 +36,11 @@ export default function ProductModal({product, onClose, isFavourite, handleFavou
             } else{
                 newProduct = {...newProduct, qty: product.qty++}
             }
-            addToCart(newProduct)
+            setCart([...cart, newProduct])
+            console.log(cart)
         } else{
             addToCart(product);
+            console.log('new item added')
         }
     }
 

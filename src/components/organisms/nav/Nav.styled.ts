@@ -46,16 +46,19 @@ export const StyledNav = styled.nav<{cartItems: Number, favouriteProductsLength:
             place-content: center;
             background-color: ${({theme}) => theme.colors.primary};
             overflow: hidden;
-            transition: height .2s ease;
+            transition: height .2s ease, color .2s ease;
+        }
+        &:hover::after{
+            color: ${({theme}) => theme.colors.black};
         }
     }
-    #favs{
+    #favs::after{
         ${props => props.favouriteProductsLength > 0 && `
             content: '${props.favouriteProductsLength}';
             height: 1rem;
         `}
     }
-    #cart{
+    #cart::after{
         ${props => props.cartItems > 0 && `
             content: '${props.cartItems}';
             height: 1rem;
