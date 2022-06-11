@@ -17,7 +17,7 @@ const StyledBanner = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    border-radius: 2rem;
+    border-radius: 1rem;
     display: grid;
     place-content: center;
     text-align: center;
@@ -27,7 +27,6 @@ const StyledBanner = styled.div`
     }
     @media screen and (min-width: 500px){
         height: 300px;
-        border-radius: 3rem;
         h2{
             font-size: 2rem;
         }

@@ -6,7 +6,7 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
     }
     html, body{
-        font-family: 'Work Sans', sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Work Sans', 'Helvetica Neue', sans-serif;
         line-height: 1.45;
         background-color: ${({theme}) => theme.colors.white};
         color: ${({theme}) => theme.colors.black};
