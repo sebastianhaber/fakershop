@@ -1,6 +1,6 @@
 import { Icon } from '@iconify/react';
 import { useContext, useState } from 'react'
-import styled from 'styled-components'
+import { Store } from 'react-notifications-component';
 import { IProduct, ShopContext } from '../../../context/Context';
 import { StyledModal } from './ProductModal.styles';
 
@@ -21,27 +21,34 @@ export default function ProductModal({product, onClose, isFavourite, handleFavou
         array.push(item)
         setCart(array)
     }
-    // const removeFromCart = (item: IProduct)=>{
-    //     let array = [...cart]
-    //     const index = array.indexOf(item);
-    //     if(index > -1) array.splice(index, 1);
-    //     setCart(array)
-    // }
     const handeAddToCart = ()=>{
-        if(cart.includes(product)){
-            console.log('includes')
-            let newProduct = {...product}
-            if(!product.qty){
-                newProduct = {...newProduct, qty: 1}
+        if(cart.find(item => item.id === product.id)){
+            const index = cart.findIndex(item => item.id === product.id);
+            let newProduct = cart[index]
+            let newArray = cart;
+            if(!newProduct.qty){
+                newProduct = {...newProduct, qty: selectedQty}
             } else{
-                newProduct = {...newProduct, qty: product.qty++}
+                newProduct = {...newProduct, qty: newProduct.qty+selectedQty}
             }
-            setCart([...cart, newProduct])
-            console.log(cart)
-        } else{
+            newArray[index] = newProduct
+            setCart(newArray)
+        } 
+        else{
             addToCart(product);
-            console.log('new item added')
         }
+        Store.addNotification({
+            title: "The product has been added to the cart!",
+            type: "success",
+            insert: "top",
+            container: "top-left",
+            animationIn: ["animate__animated", "animate__bounceIn"],
+            animationOut: ["animate__animated", "animate__bounceOut"],
+            dismiss: {
+              duration: 3000,
+              onScreen: true
+            }
+        });
     }
 
     return (

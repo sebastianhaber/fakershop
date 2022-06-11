@@ -66,12 +66,6 @@ export const StyledModal = styled.div`
                 top: unset;
                 bottom: 2rem;
                 right: 2rem;
-                border: 3px solid ${({theme}) => theme.colors.black};
-                transition: color .2s ease;
-                &.isFavourite{
-                    background-color: ${({theme}) => theme.colors.primary};
-                    color: ${({theme}) => theme.colors.black};
-                }
             }
             .qty{
                 display: flex;

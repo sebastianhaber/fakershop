@@ -57,12 +57,14 @@ export const StyledTile = styled.div`
         place-content: center;
         font-size: 1.5rem;
         cursor: pointer;
-        transition: color .2s ease;
+        border: 3px solid ${({theme}) => theme.colors.black};
+        transition: all .2s ease;
         &:hover{
             color: ${({theme}) => theme.colors.primary};
         }
         &.isFavourite{
-            color: ${({theme}) => theme.colors.primary};
+            background-color: ${({theme}) => theme.colors.primary};
+            color: ${({theme}) => theme.colors.black};
         }
     }
 `;
