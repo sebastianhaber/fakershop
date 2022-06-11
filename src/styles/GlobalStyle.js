@@ -44,4 +44,17 @@ export const GlobalStyle = createGlobalStyle`
             cursor: not-allowed;
         }
     }
+    .underline{
+        position: relative;
+        &::after{
+            content: '';
+            position: absolute;
+            bottom: 3px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: ${({theme}) => theme.colors.primary};
+            transition: all .2s ease;
+        }
+    }
 `;

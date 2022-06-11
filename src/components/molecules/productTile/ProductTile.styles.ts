@@ -25,18 +25,8 @@ export const StyledTile = styled.div`
         width: 100%;
     }
     .price{
-        position: relative;
         display: inline-block;
         font-size: 1.5rem;
-        &::after{
-            content: '';
-            position: absolute;
-            bottom: 3px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: ${({theme}) => theme.colors.primary};
-        }
     }
     img{
         width: 100%;

@@ -76,9 +76,9 @@ export default function ProductModal({product, onClose, isFavourite, handleFavou
                     <div className="item-info">
                         <h2>{product.name}</h2>
                         <p className="description">{product.description}</p>
-                        <span className='priceWrapper'>Price: <p className="price">${product.price}</p></span>
+                        <span className='priceWrapper'>Price: <p className="price underline">${product.price}</p></span>
                         <div className="buttons">
-                            <div title='Add to favourites' className={isFavourite ? `favourite isFavourite` : `favourite`} onClick={()=>handleFavourite(product)}><Icon icon="akar-icons:heart" /></div>
+                            <div title={isFavourite ? `Remove from favourite products`: `Add to favourite products`} className={isFavourite ? `favourite isFavourite` : `favourite`} onClick={()=>handleFavourite(product)}><Icon icon="akar-icons:heart" /></div>
                             <div className="qty">
                                 <button onClick={decreaseQty} disabled={selectedQty<2}>-</button>
                                 <p>{selectedQty}</p>

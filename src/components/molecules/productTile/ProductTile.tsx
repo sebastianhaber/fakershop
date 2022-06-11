@@ -27,7 +27,6 @@ export default function ProductTile({product}: any) {
     }
     const handleToggleModal = ()=>{
         setModalOpen(prev => !prev)
-        document.body.classList.toggle('hideScrollbar')
     }
     useEffect(()=>{
         if(favouriteProducts.includes(product)) setFavourite(true)
@@ -40,7 +39,7 @@ export default function ProductTile({product}: any) {
             <div className={isFavourite ? `favourite isFavourite` : `favourite`} onClick={()=>handleFavourite(product)}><Icon icon="akar-icons:heart" /></div>
             <div className="meta" onClick={handleToggleModal}>
                 <div className="name">{product.name}</div>
-                <div className="price">${product.price}</div>
+                <div className="price underline">${product.price}</div>
             </div>
         </StyledTile>
     )
