@@ -1,9 +1,10 @@
 import Nav from './components/organisms/nav/Nav';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import Home from './components/organisms/home/Home';
+import Home from './pages/home/Home';
 import { ShopContext } from './context/Context';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import FavouriteProducts from './pages/favouriteProducts/FavouriteProducts'
 
 function App() {
   const [products, setProducts] = useState<[]>([]);
@@ -31,6 +32,7 @@ function App() {
         <main>
           <Routes>
               <Route path='/' element={<Home />} />
+              <Route path='/favourites' element={<FavouriteProducts />} />
           </Routes>
         </main>
       </Router>
