@@ -17,7 +17,10 @@ export const GlobalStyle = createGlobalStyle`
     main{
         margin: calc(70px + 1rem) auto 0;
         max-width: 1920px;
-        padding: 2rem;
+        padding: 2rem 1rem;
+        @media screen and (min-width: 500px){
+            padding: 2rem;
+        }
     }
     a{
         cursor: pointer;

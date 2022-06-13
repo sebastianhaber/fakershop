@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
 export const StyledProduct = styled.div`
+    display: flex;
+    gap: 1rem;
     padding: 1rem;
     border: 1px solid #c4c4c4;
     border-radius: 0.5rem;
-    max-width: 600px;
-    display: flex;
-    gap: 1rem;
     .image{
         width: 100px;
         height: 100px;

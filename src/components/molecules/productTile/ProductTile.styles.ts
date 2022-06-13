@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const StyledTile = styled.div`
     position: relative;
     width: 300px;
-    min-height: 400px;
     border-radius: 1rem;
+    background-color: ${({theme}) => theme.colors.lightGray};
     overflow: hidden;
     transition: background-color .2s ease;
     &:hover{

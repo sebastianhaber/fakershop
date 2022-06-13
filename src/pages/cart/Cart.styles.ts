@@ -3,7 +3,9 @@ import styled from "styled-components";
 export const StyledCart = styled.section`
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     gap: 1rem;
+    width: 100%;
     h2{
         display: inline-block;
     }
@@ -18,9 +20,10 @@ export const StyledCart = styled.section`
         }
     }
     .details{
-        min-width: 300px;
-        max-width: 400px;
         width: 100%;
+        background-color: ${({theme}) => theme.colors.lightGray};
+        padding: 2rem;
+        border-radius: 0.5rem;
         .totalCost{
             margin-top: 1rem;
             display: flex;
@@ -33,12 +36,16 @@ export const StyledCart = styled.section`
         }
         button{
             margin-top: 2rem;
+            width: unset;
         }
         .promo{
             margin-top: 2rem;
             p{
                 font-weight: bold;
             }
+        }
+        @media screen and (min-width: 848px) {
+            width: unset;
         }
     }
 `;

@@ -10,7 +10,7 @@ export const StyledNav = styled.nav<{cartItems: Number, favouriteProductsLength:
     justify-content: space-between;
     width: 100%;
     height: 70px;
-    padding: 0 2rem;
+    padding: 0 1rem;
     font-size: 1.5rem;
     #logo{
         font-weight: bold;
@@ -65,6 +65,7 @@ export const StyledNav = styled.nav<{cartItems: Number, favouriteProductsLength:
         `}
     }
     @media screen and (min-width: 500px) {
+        padding: 0 2rem;
         .box{
             gap: 2rem;
         }
