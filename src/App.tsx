@@ -5,6 +5,7 @@ import { ShopContext } from './context/Context';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import FavouriteProducts from './pages/favouriteProducts/FavouriteProducts'
+import Cart from './pages/cart/Cart';
 
 function App() {
   const [products, setProducts] = useState<[]>([]);
@@ -33,6 +34,7 @@ function App() {
           <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/favourites' element={<FavouriteProducts />} />
+              <Route path='/cart' element={<Cart />} />
           </Routes>
         </main>
       </Router>

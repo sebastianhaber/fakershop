@@ -44,6 +44,12 @@ export const GlobalStyle = createGlobalStyle`
             cursor: not-allowed;
         }
     }
+    input{
+        font: inherit;
+        border: 2px solid ${({theme}) => theme.colors.primary};
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+    }
     .underline{
         position: relative;
         &::after{
@@ -55,6 +61,26 @@ export const GlobalStyle = createGlobalStyle`
             height: 3px;
             background-color: ${({theme}) => theme.colors.primary};
             transition: all .2s ease;
+        }
+    }
+    .noFavs, .emptyCart{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4rem;
+        text-align: center;
+        font-weight: bold;
+        a{
+            overflow: hidden;
+            font-size: 1.5rem;
+            &:hover::after{
+                transform: translateX(100%);
+            }
+        }
+        img{
+            width: 100%;
+            max-width: 300px;
         }
     }
 `;
