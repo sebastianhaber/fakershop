@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/fakershop/static/css/main.40ea1f51.css",
-    "main.js": "/fakershop/static/js/main.f64c277c.js",
+    "main.js": "/fakershop/static/js/main.afec6e6c.js",
     "static/js/787.bf11651e.chunk.js": "/fakershop/static/js/787.bf11651e.chunk.js",
     "static/media/undraw_no_data_re_kwbl.svg": "/fakershop/static/media/undraw_no_data_re_kwbl.f0f04d8ee5a550b82827cd4d6deaa7e5.svg",
     "index.html": "/fakershop/index.html",
     "main.40ea1f51.css.map": "/fakershop/static/css/main.40ea1f51.css.map",
-    "main.f64c277c.js.map": "/fakershop/static/js/main.f64c277c.js.map",
+    "main.afec6e6c.js.map": "/fakershop/static/js/main.afec6e6c.js.map",
     "787.bf11651e.chunk.js.map": "/fakershop/static/js/787.bf11651e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.40ea1f51.css",
-    "static/js/main.f64c277c.js"
+    "static/js/main.afec6e6c.js"
   ]
 }
