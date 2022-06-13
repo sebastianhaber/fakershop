@@ -39,7 +39,10 @@ export default function ProductTile({product}: any) {
             <div className={isFavourite ? `favourite isFavourite` : `favourite`} onClick={()=>handleFavourite(product)}><Icon icon="akar-icons:heart" /></div>
             <div className="meta" onClick={handleToggleModal}>
                 <div className="name">{product.name}</div>
-                <div className="price underline">${product.price}</div>
+                <div className="wrapper">
+                    {product.qty && <div className="qty-wrapper">{`Qty: <b>${product.qty}</b>`}</div>}
+                    <div className="price underline">${product.price}</div>
+                </div>
             </div>
         </StyledTile>
     )

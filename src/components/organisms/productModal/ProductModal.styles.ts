@@ -68,9 +68,13 @@ export const StyledModal = styled.div`
                 right: 2rem;
             }
             .qty{
-                display: flex;
-                align-items: center;
+                width: 100%;
                 margin-top: 2rem;
+                &_wrapper{
+                    display: flex;
+                    align-items: center;
+                    margin-top: 1rem;
+                }
                 button{
                     margin: 0;
                     padding: 0;

@@ -3,12 +3,12 @@ import styled from "styled-components";
 export const StyledTile = styled.div`
     position: relative;
     width: 300px;
-    height: 400px;
+    min-height: 400px;
     border-radius: 1rem;
     overflow: hidden;
     transition: background-color .2s ease;
     &:hover{
-        background-color: #F7F7F7;
+        background-color: #f0f0f0;
     }
     .background{
         height: 300px;
@@ -17,12 +17,20 @@ export const StyledTile = styled.div`
     .meta{
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
         padding: 1rem;
     }
     .name{
         font-weight: bold;
         width: 100%;
+    }
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .qty-wrapper{
+        width: 100%;
+        margin-top: 1rem;
     }
     .price{
         display: inline-block;

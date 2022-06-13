@@ -76,13 +76,17 @@ export default function ProductModal({product, onClose, isFavourite, handleFavou
                     <div className="item-info">
                         <h2>{product.name}</h2>
                         <p className="description">{product.description}</p>
+                        {product.qty && <div className="qty-wrapper">{`Qty: <b>${product.qty}</b>`}</div>}
                         <span className='priceWrapper'>Price: <p className="price underline">${product.price}</p></span>
                         <div className="buttons">
                             <div title={isFavourite ? `Remove from favourite products`: `Add to favourite products`} className={isFavourite ? `favourite isFavourite` : `favourite`} onClick={()=>handleFavourite(product)}><Icon icon="akar-icons:heart" /></div>
                             <div className="qty">
-                                <button onClick={decreaseQty} disabled={selectedQty<2}>-</button>
-                                <p>{selectedQty}</p>
-                                <button onClick={addQty}>+</button>
+                                <h4>Quantity</h4>
+                                <div className="qty_wrapper">
+                                    <button onClick={decreaseQty} disabled={selectedQty<2}>-</button>
+                                    <p>{selectedQty}</p>
+                                    <button onClick={addQty}>+</button>
+                                </div>
                             </div>
                             <button className="full" onClick={handeAddToCart}>Add to cart {`($${(selectedQty*Number.parseFloat(product.price)).toFixed(2)})`}</button>
                         </div>
