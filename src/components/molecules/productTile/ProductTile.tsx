@@ -1,13 +1,16 @@
 import { Icon } from '@iconify/react';
 import { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { IProduct, ShopContext } from '../../../context/Context';
-import ProductModal from '../../organisms/productModal/ProductModal';
 import { StyledTile } from './ProductTile.styles';
 
-export default function ProductTile({product}: any) {
+type Props = {
+    product: IProduct
+}
+
+export default function ProductTile(props: Props) {
     const { favouriteProducts, setFavouriteProducts } = useContext(ShopContext)
     const [isFavourite, setFavourite] = useState<boolean>(false);
-    const [isModalOpen, setModalOpen] = useState<boolean>(false);
     const addProductToFavourites = (item: IProduct)=>{
         let array = [...favouriteProducts];
         array.push(item)
@@ -25,25 +28,21 @@ export default function ProductTile({product}: any) {
         if(isFavourite) removeProductFromFavourites(item);
         else addProductToFavourites(item);
     }
-    const handleToggleModal = ()=>{
-        setModalOpen(prev => !prev)
-    }
     useEffect(()=>{
-        if(favouriteProducts.includes(product)) setFavourite(true)
+        if(favouriteProducts.includes(props.product)) setFavourite(true)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return (
         <StyledTile>
-            {isModalOpen && <ProductModal isFavourite={isFavourite} handleFavourite={handleFavourite} product={product} onClose={handleToggleModal} />}
-            <div className='background' onClick={handleToggleModal}><img src={product.image} alt={product.name} /></div>
-            <div className={isFavourite ? `favourite isFavourite` : `favourite`} onClick={()=>handleFavourite(product)}><Icon icon="akar-icons:heart" /></div>
-            <div className="meta" onClick={handleToggleModal}>
-                <div className="name">{product.name}</div>
+            <Link to={`/product/${props.product.id}`} className='background'><img src={props.product.image} alt={props.product.name} /></Link>
+            <div className={isFavourite ? `favourite isFavourite` : `favourite`} onClick={()=>handleFavourite(props.product)}><Icon icon="akar-icons:heart" /></div>
+            <Link to={`/product/${props.product.id}`} className="meta">
+                <div className="name">{props.product.name}</div>
                 <div className="wrapper">
-                    {product.qty && <div className="qty-wrapper">{`Qty: <b>${product.qty}</b>`}</div>}
-                    <div className="price underline">${product.price}</div>
+                    {props.product.qty && <div className="qty-wrapper">{`Qty: <b>${props.product.qty}</b>`}</div>}
+                    <div className="price underline">${props.product.price}</div>
                 </div>
-            </div>
+            </Link>
         </StyledTile>
     )
 }

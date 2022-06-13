@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     main{
         margin: calc(70px + 1rem) auto 0;
         max-width: 1920px;
-        padding: 0 2rem;
+        padding: 2rem;
     }
     a{
         cursor: pointer;

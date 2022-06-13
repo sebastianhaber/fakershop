@@ -1,4 +1,5 @@
 import { Icon } from '@iconify/react'
+import { Link } from 'react-router-dom'
 import { IProduct } from '../../../context/Context'
 import { StyledProduct } from './CartProduct.styles'
 
@@ -13,12 +14,12 @@ const CartProduct = (props: Props) => {
     
     return (
         <StyledProduct>
-            <div className="image">
+            <Link to={`/product/${props.product.id}`} className="image">
                 <img src={props.product.image} alt={props.product.name} />
-            </div>
+            </Link>
             <div className="wrapper">
                 <div className="heading">
-                    <p className="name">{props.product.name}</p>
+                    <Link to={`/product/${props.product.id}`} className="name">{props.product.name}</Link>
                     <div 
                         className="removeItem" 
                         title='Delete item from shopping cart'

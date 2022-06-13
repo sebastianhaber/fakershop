@@ -1,31 +1,10 @@
 import styled from "styled-components";
 
-export const StyledModal = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    width: 100%;
-    height: 100vh;
-    .overlay{
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,.6);
-    }
-    .wrapper{
-        position: absolute;
-        top: 4rem;
-        left: 0;
-        background-color: ${({theme}) => theme.colors.white};
-        width: 100%;
-        height: calc(100vh - 2rem);
-        border-radius: 0;
-        padding: 2rem 2rem 4rem;
-        overflow: auto;
-    }
+export const StyledProduct = styled.div`
     .header{
         font-weight: bold;
         font-size: 1.5rem;
+        width: 100%;
     }
     .close-btn{
         position: fixed;
@@ -63,9 +42,28 @@ export const StyledModal = styled.div`
             justify-content: center;
             .favourite{
                 position: fixed;
+                right: 1rem;
                 top: unset;
                 bottom: 2rem;
                 right: 2rem;
+                z-index: 1;
+                background-color: ${({theme}) => theme.colors.white};
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                display: grid;
+                place-content: center;
+                font-size: 1.5rem;
+                cursor: pointer;
+                border: 3px solid ${({theme}) => theme.colors.black};
+                transition: all .2s ease;
+                &:hover{
+                    color: ${({theme}) => theme.colors.primary};
+                }
+                &.isFavourite{
+                    background-color: ${({theme}) => theme.colors.primary};
+                    color: ${({theme}) => theme.colors.black};
+                }
             }
             .qty{
                 width: 100%;
@@ -93,6 +91,13 @@ export const StyledModal = styled.div`
             margin-top: 2rem;
         }
     }
+    .priceWrapper{
+        p{
+            display: inline-block;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+    }
     .images{
         display: flex;
         flex-direction: column;
@@ -114,6 +119,7 @@ export const StyledModal = styled.div`
             }
         }
     }
+    
     @media screen and (min-width: 893px) {
         .images img#mainImage{
             width: 100%;
