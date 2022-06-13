@@ -45,11 +45,6 @@ const Cart = () => {
     }
     const handleChangePromoCodeValue = (e: any)=>{
         setPromoCodeValue(e.target.value)
-        if(e.target.value === Constants.promocode.code){
-            setTotalPricePromo(totalPrice*((100-Constants.promocode.percentOff)/100))
-        } else{
-            setTotalPricePromo(0)
-        }
     }
 
     useEffect(()=>{
@@ -63,7 +58,15 @@ const Cart = () => {
             })
             setTotalPrice(price);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [cart])
+    useEffect(()=>{
+        if(promoCodeValue === Constants.promocode.code){
+            setTotalPricePromo(totalPrice*((100-Constants.promocode.percentOff)/100))
+        } else{
+            setTotalPricePromo(0)
+        }
+    }, [totalPrice, promoCodeValue])
 
     if(!cart.length) {
         return (
@@ -98,7 +101,7 @@ const Cart = () => {
                     <p>Total cost:</p>
                     <p className="price">${totalPricePromo ? totalPricePromo.toFixed(2) : totalPrice.toFixed(2)}</p>
                 </span>
-                <button className="full">Shipping & Payment</button>
+                <Link to='/order'><button className="full">Shipping & Payment</button></Link>
             </div>
         </StyledCart>
     )
