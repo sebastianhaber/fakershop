@@ -1,7 +1,6 @@
-interface IConstants {
-    promocode: string
-}
-
-export const Constants: IConstants = {
-    promocode: 'Promo50'
+export const Constants = {
+    promocode: {
+        code: 'Promo50',
+        percentOff: 50
+    }
 }

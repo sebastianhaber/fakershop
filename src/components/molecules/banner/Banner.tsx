@@ -5,8 +5,8 @@ export default function Banner() {
     const promoCode = Constants.promocode;
     return (
         <StyledBanner>
-            <h2>Discounts up to 50%</h2>
-            <p>Promocode: <b>{promoCode}</b></p>
+            <h2>Discounts up to {promoCode.percentOff}%</h2>
+            <p>Promocode: <b>{promoCode.code}</b></p>
         </StyledBanner>
     )
 }
