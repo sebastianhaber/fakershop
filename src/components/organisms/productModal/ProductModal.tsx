@@ -19,7 +19,7 @@ export default function ProductModal({product, onClose, isFavourite, handleFavou
     const addToCart = (item: IProduct)=>{
         let array = [...cart];
         let newItem = item;
-        const itemWithQty = newItem.qty ? newItem : {...newItem, qty: 1};
+        const itemWithQty = newItem.qty ? newItem : {...newItem, qty: selectedQty};
         array.push(itemWithQty)
         setCart(array)
     }
