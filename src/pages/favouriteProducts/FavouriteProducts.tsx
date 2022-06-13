@@ -5,9 +5,7 @@ import { StyledFavouriteWrapper } from "./FavouriteProducts.styles"
 import { Link } from "react-router-dom"
 import ProductTile from "../../components/molecules/productTile/ProductTile"
 
-type Props = {}
-
-const Favourites = (props: Props) => {
+const Favourites = () => {
   const { favouriteProducts } = useContext(ShopContext);
   
   if(!favouriteProducts.length){
