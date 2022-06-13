@@ -56,6 +56,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     .underline{
         position: relative;
+        z-index: 1;
         &::after{
             content: '';
             position: absolute;
@@ -63,6 +64,7 @@ export const GlobalStyle = createGlobalStyle`
             left: 0;
             width: 100%;
             height: 3px;
+            z-index: -1;
             background-color: ${({theme}) => theme.colors.primary};
             transition: all .2s ease;
         }

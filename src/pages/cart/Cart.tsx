@@ -1,16 +1,26 @@
 import { useContext, useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { IProduct, ShopContext } from "../../context/Context"
 import { StyledCart } from "./Cart.styles"
 import NoDataSVG from '../../assets/undraw_no_data_re_kwbl.svg'
 import CartProduct from "../../components/organisms/cartProduct/CartProduct"
 import { Constants } from "../../const/Constants"
 
+export const getTotalPrice = (array: IProduct[])=>{
+    let price = 0;
+    array.forEach(item => {
+        if(item.qty){
+            price += (Number.parseFloat(item.price)*item.qty);
+        }
+    })
+    return price;
+}
 const Cart = () => {
-    const { cart, setCart } = useContext(ShopContext);
+    const { cart, setCart, setDiscount, discount } = useContext(ShopContext);
     const [totalPrice, setTotalPrice] = useState<number>(0);
     const [totalPricePromo, setTotalPricePromo] = useState<number>(0);
     const [promoCodeValue, setPromoCodeValue] = useState<string>('')
+    const navigate = useNavigate();
 
     const handleQuantity = (product: IProduct, action: string)=>{
         let newCart = [...cart];
@@ -46,17 +56,22 @@ const Cart = () => {
     const handleChangePromoCodeValue = (e: any)=>{
         setPromoCodeValue(e.target.value)
     }
+    const onSubmit = ()=>{
+        if(promoCodeValue === Constants.promocode.code){
+            setDiscount({
+                isActive: true,
+                percentOff: Constants.promocode.percentOff,
+                totalPrice: totalPricePromo
+            })
+        } else{
+            setDiscount({...discount, isActive: false})
+        }
+        navigate('/order')
+    }
 
     useEffect(()=>{
         if(cart){
-            let price = 0;
-            cart.map(item => {
-                if(item.qty){
-                    return price += (Number.parseFloat(item.price)*item.qty);
-                }
-                return 0;
-            })
-            setTotalPrice(price);
+            setTotalPrice(getTotalPrice(cart));
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [cart])
@@ -101,7 +116,7 @@ const Cart = () => {
                     <p>Total cost:</p>
                     <p className="price">${totalPricePromo ? totalPricePromo.toFixed(2) : totalPrice.toFixed(2)}</p>
                 </span>
-                <Link to='/order'><button className="full">Shipping & Payment</button></Link>
+                <button className="full" onClick={onSubmit}>Shipping & Payment</button>
             </div>
         </StyledCart>
     )

@@ -14,12 +14,19 @@ export interface IProduct{
     upc: number,
     qty?: number,
 }
+export interface IDiscount {
+    isActive: boolean,
+    percentOff: number,
+    totalPrice: number,
+}
 interface IShopContext {
     products: IProduct[],
     favouriteProducts: IProduct[],
     setFavouriteProducts: any,
     cart: IProduct[],
     setCart: any,
+    discount: IDiscount,
+    setDiscount: Function
 }
 export const ShopContext = createContext<IShopContext>({
     products: [],
@@ -27,4 +34,10 @@ export const ShopContext = createContext<IShopContext>({
     setFavouriteProducts: ()=>{},
     cart: [],
     setCart: ()=>{},
+    discount: {
+        isActive: false,
+        percentOff: 0,
+        totalPrice: 0
+    },
+    setDiscount: ()=>{}
 })

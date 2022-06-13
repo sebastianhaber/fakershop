@@ -1,17 +1,24 @@
 import Nav from './components/organisms/nav/Nav';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Home from './pages/home/Home';
-import { ShopContext } from './context/Context';
+import { IDiscount, ShopContext } from './context/Context';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import FavouriteProducts from './pages/favouriteProducts/FavouriteProducts'
 import Cart from './pages/cart/Cart';
 import ProductPage from './pages/product/Product';
+import Order from './pages/order/Order';
+import Finish from './pages/order/Finish';
 
 function App() {
   const [products, setProducts] = useState<[]>([]);
   const [favouriteProducts, setFavouriteProducts] = useState<[]>([]);
   const [cart, setCart] = useState<[]>([]);
+  const [discount, setDiscount] = useState<IDiscount>({
+    isActive: false,
+    percentOff: 0,
+    totalPrice: 0
+  });
   useEffect(()=>{
     if(!products.length){
       axios.get('https://fakerapi.it/api/v1/products?_price_min=5&_price_max=1000', {
@@ -27,7 +34,8 @@ function App() {
     <ShopContext.Provider value={{
       products, 
       favouriteProducts, setFavouriteProducts,
-      cart, setCart
+      cart, setCart,
+      discount, setDiscount
     }}>
       <Router>
         <Nav />
@@ -37,6 +45,8 @@ function App() {
               <Route path='/favourites' element={<FavouriteProducts />} />
               <Route path='/cart' element={<Cart />} />
               <Route path='/product/:id' element={<ProductPage />} />
+              <Route path='/order' element={<Order />} />
+              <Route path='/finish-order' element={<Finish />} />
           </Routes>
         </main>
       </Router>
