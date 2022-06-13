@@ -40,6 +40,7 @@ export const GlobalStyle = createGlobalStyle`
         width: 100%;
         font-weight: bold;
         cursor: pointer;
+        background-color: ${({theme}) => theme.colors.lightGray};
         &.full{
             background-color: ${({theme}) => theme.colors.primary};
         }

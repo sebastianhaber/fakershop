@@ -4,7 +4,7 @@ export const StyledProduct = styled.div`
     display: flex;
     gap: 1rem;
     padding: 1rem;
-    border: 1px solid #c4c4c4;
+    border: 1px solid ${({theme}) => theme.colors.lightGray};
     border-radius: 0.5rem;
     .image{
         width: 100px;
