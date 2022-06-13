@@ -9,6 +9,7 @@ import Cart from './pages/cart/Cart';
 import ProductPage from './pages/product/Product';
 import Order from './pages/order/Order';
 import Finish from './pages/order/Finish';
+import Loader from './components/molecules/loader/Loader';
 
 function App() {
   const [products, setProducts] = useState<[]>([]);
@@ -30,6 +31,9 @@ function App() {
       })
     }
   }, [products.length])
+
+  if(!products.length) return <Loader message='Searching new products...' />
+  
   return (
     <ShopContext.Provider value={{
       products, 
