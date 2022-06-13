@@ -21,7 +21,7 @@ const Nav = () => {
             <div className="box">
                 <Link to='/favourites' id='favs'><Icon icon="akar-icons:heart" /></Link>
                 <Link to='/cart' id='cart'><Icon icon="akar-icons:basket" /></Link>
-                <Link to='/profile'><Icon icon="akar-icons:person" /></Link>
+                {/* <Link to='/profile'><Icon icon="akar-icons:person" /></Link> */}
             </div>
         </StyledNav>
     )
