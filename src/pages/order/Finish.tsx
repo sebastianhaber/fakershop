@@ -21,14 +21,11 @@ const animation = keyframes`
     0%{
         transform: scale(0.2);
     }
-    20%{
+    25%{
         transform: scale(1.2);
     }
-    40%{
+    50%{
         transform: scale(0.8);
-    }
-    78%{
-        transform: scale(1);
     }
     100%{
         transform: scale(1);
