@@ -120,8 +120,7 @@ export default function ProductPage() {
                     <p className="description">{product.description}</p>
                     {product.qty && <div className="qty-wrapper">{`Qty: <b>${product.qty}</b>`}</div>}
                     <span className='priceWrapper'>Price: <p className="price underline">${product.price}</p></span>
-                    <div className="buttons">
-                        <div title={isFavourite ? `Remove from favourite products`: `Add to favourite products`} className={isFavourite ? `favourite isFavourite` : `favourite`} onClick={()=>handleFavourite(product)}><Icon icon="akar-icons:heart" /></div>
+                    <div className="buttons_wrapper">
                         <div className="qty">
                             <h4>Quantity</h4>
                             <div className="qty_wrapper">
@@ -130,7 +129,10 @@ export default function ProductPage() {
                                 <button onClick={addQty}>+</button>
                             </div>
                         </div>
-                        <button className="full" onClick={handeAddToCart}>Add to cart {`($${(selectedQty*Number.parseFloat(product.price)).toFixed(2)})`}</button>
+                        <div className="buttons">
+                            <div title={isFavourite ? `Remove from favourite products`: `Add to favourite products`} className={isFavourite ? `favourite isFavourite` : `favourite`} onClick={()=>handleFavourite(product)}><Icon icon="akar-icons:heart" /></div>
+                            <button className="full" onClick={handeAddToCart}>Add to cart {`($${(selectedQty*Number.parseFloat(product.price)).toFixed(2)})`}</button>
+                        </div>
                     </div>
                 </div>
             </div>

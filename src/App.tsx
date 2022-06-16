@@ -1,5 +1,5 @@
 import Nav from './components/organisms/nav/Nav';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import {HashRouter as Router, Route, Routes} from 'react-router-dom'
 import Home from './pages/home/Home';
 import { IDiscount, ShopContext } from './context/Context';
 import { useEffect, useState } from 'react';
