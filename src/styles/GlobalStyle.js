@@ -47,6 +47,9 @@ export const GlobalStyle = createGlobalStyle`
         &:disabled{
             cursor: not-allowed;
         }
+        &:active{
+            transform: scale(0.98);
+        }
     }
     input{
         font: inherit;
