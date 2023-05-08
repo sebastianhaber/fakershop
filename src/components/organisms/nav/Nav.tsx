@@ -16,6 +16,7 @@ const Nav = () => {
         {/* Shop. */}
         BIO - SHOP.
       </Link>
+      <input type="search" placeholder="Search product..." className="search" />
       <div className="box">
         <Link to="/favourites" id="favs">
           <Icon icon="akar-icons:heart" />
@@ -23,6 +24,7 @@ const Nav = () => {
         <Link to="/cart" id="cart">
           <Icon icon="akar-icons:basket" />
         </Link>
+        <Icon icon="akar-icons:person" />
         {/* <Link to='/profile'><Icon icon="akar-icons:person" /></Link> */}
       </div>
     </StyledNav>

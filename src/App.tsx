@@ -3,7 +3,6 @@ import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/home/Home';
 import { IDiscount, IProduct, ShopContext } from './context/Context';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import FavouriteProducts from './pages/favouriteProducts/FavouriteProducts';
 import Cart from './pages/cart/Cart';
 import ProductPage from './pages/product/Product';
