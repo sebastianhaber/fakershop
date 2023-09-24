@@ -1,11 +1,19 @@
-import { Icon } from '@iconify/react';
-import { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { ShopContext } from '../../../context/Context';
-import { StyledNav } from './Nav.styled';
+import { Icon } from "@iconify/react";
+import { useContext, useMemo } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import { ShopContext } from "../../../context/Context";
+import { StyledNav } from "./Nav.styled";
 
 const Nav = () => {
   const { favouriteProducts, cart } = useContext(ShopContext);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = useMemo(() => searchParams.get("q") || "", [searchParams]);
+
+  const handleSearch = (value: string) => {
+    if (!value) searchParams.delete("q");
+    else searchParams.set("q", value.trim());
+    setSearchParams(searchParams);
+  };
 
   return (
     <StyledNav
@@ -16,7 +24,14 @@ const Nav = () => {
         {/* Shop. */}
         BIO - SHOP.
       </Link>
-      <input type="search" placeholder="Search product..." className="search" />
+      <input
+        type="search"
+        placeholder="Search product..."
+        className="search"
+        onChange={(e) => handleSearch(e.target.value)}
+        defaultValue={query}
+        autoFocus={query.length > 0}
+      />
       <div className="box">
         <Link to="/favourites" id="favs">
           <Icon icon="akar-icons:heart" />
