@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 export const StyledNav = styled.nav<{
   cartItems: number;
   favouriteProductsLength: number;
@@ -8,6 +8,8 @@ export const StyledNav = styled.nav<{
   left: 0;
   z-index: 3;
   background-color: rgba(255, 255, 255, 0.9);
+  filter: saturate(2);
+  backdrop-filter: blur(1rem);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -19,12 +21,24 @@ export const StyledNav = styled.nav<{
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: -3px;
+    @media screen and (max-width: 500px) {
+      font-size: 1rem;
+    }
   }
   .search {
     font-size: 1rem;
     padding: 0.25rem 0.5rem;
     max-width: 500px;
     width: 100%;
+    @media screen and (max-width: 850px) {
+      width: 300px;
+    }
+    @media screen and (max-width: 600px) {
+      width: 200px;
+    }
+    @media screen and (max-width: 450px) {
+      display: none;
+    }
   }
   .box {
     display: flex;
@@ -43,7 +57,7 @@ export const StyledNav = styled.nav<{
   #cart {
     position: relative;
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       right: 0;

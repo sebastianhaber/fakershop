@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
     *, *::before, *::after{
         box-sizing: border-box;
@@ -8,8 +8,8 @@ export const GlobalStyle = createGlobalStyle`
     html, body{
         font-family: -apple-system, BlinkMacSystemFont, 'Work Sans', 'Helvetica Neue', sans-serif;
         line-height: 1.45;
-        background-color: ${({theme}) => theme.colors.white};
-        color: ${({theme}) => theme.colors.black};
+        background-color: ${({ theme }) => theme.colors.white};
+        color: ${({ theme }) => theme.colors.black};
         &.hideScrollbar{
             overflow: hidden;
         }
@@ -40,9 +40,9 @@ export const GlobalStyle = createGlobalStyle`
         width: 100%;
         font-weight: bold;
         cursor: pointer;
-        background-color: ${({theme}) => theme.colors.lightGray};
+        background-color: ${({ theme }) => theme.colors.lightGray};
         &.full{
-            background-color: ${({theme}) => theme.colors.primary};
+            background-color: ${({ theme }) => theme.colors.primary};
         }
         &:disabled{
             cursor: not-allowed;
@@ -53,7 +53,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     input{
         font: inherit;
-        border: 2px solid ${({theme}) => theme.colors.primary};
+        border: 2px solid ${({ theme }) => theme.colors.primary};
         border-radius: 0.5rem;
         padding: 0.5rem 1rem;
     }
@@ -68,7 +68,7 @@ export const GlobalStyle = createGlobalStyle`
             width: 100%;
             height: 3px;
             z-index: -1;
-            background-color: ${({theme}) => theme.colors.primary};
+            background-color: ${({ theme }) => theme.colors.primary};
             transition: all .2s ease;
         }
     }
