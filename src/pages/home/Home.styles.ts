@@ -5,6 +5,8 @@ export const StyledHomeWrapper = styled.div`
     margin: 4rem 0 1rem;
   }
   .products {
+    max-width: 1300px;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
